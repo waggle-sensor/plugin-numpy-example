@@ -1,6 +1,6 @@
 # Numpy Plugin Example
 
-This is a simple template for writing a plugin which computes a few stats on a fake image frame.
+This is a simple template for writing a plugin. This example computes a few stats on a fake image frame.
 
 ## Overview
 
