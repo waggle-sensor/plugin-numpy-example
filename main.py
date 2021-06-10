@@ -32,7 +32,8 @@ def main():
     plugin.init()
 
     while True:
-        logging.info("getting sample")
+        logging.info("getting camera snapshot")
+        # TODO actually take a snapshot from the camera instead of using an empty image!
         fake_frame = np.zeros((640, 480, 3))
 
         logging.info("calling process_frame")
