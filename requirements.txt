@@ -1,0 +1,6 @@
+# waggle modules
+https://github.com/waggle-sensor/pywaggle/archive/refs/tags/v0.40.4.zip
+# add you python packages below. for example:
+# requests
+# numpy
+# ...
