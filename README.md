@@ -1,6 +1,6 @@
 # Numpy Plugin Example
 
-This is a simple plugin which uses numpy to compute some stats on a test image. While not useful on its own, it serves as a starting point for plugin developers.
+This is a simple plugin which uses numpy to compute some stats on a test image. While not very useful on its own, it serves as a starting point for other plugin developers.
 
 ## Overview
 
