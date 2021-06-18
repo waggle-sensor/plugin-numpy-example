@@ -7,10 +7,10 @@ This is a simple plugin which uses numpy to compute some stats on a test image. 
 Plugins contain both code and packaging information. In this example, we've organized them as follows:
 
 1. The code consists of:
-    * `main.py`. Main plugin code. It is primarily structured around the `process_frame` function which actually computes the stats.
-    * `test.py`. Minimal test file which exercises `process_frame` functionality on a test image. Serves as a starting point for building automated testing.
+    * `main.py`. Main plugin code. It's primarily structured around the `process_frame` function.
+    * `test.py`. Minimal test file which exercises `process_frame` on a test image. Serves as a starting point for building automated testing.
     * `requirements.txt`. Python dependencies file. Add any required modules to this file.
 
 2. The packaging information consists of:
-    * `sage.yaml`. Sage spec file. Modify this to match your example. This is used to register your code in the [ECR](https://portal.sagecontinuum.org).
-    * `Dockerfile`. Dockerfile which uses the full ML base image and installs all dependencies in `requirements.txt`. This is used to create a container image which includes any special dependencies your code may need.
+    * `sage.yaml`. Defines plugin info used by [ECR](https://portal.sagecontinuum.org). You must update this for your example.
+    * `Dockerfile`. Defines plugin code and dependency bundle. You can update this if you have additional dependencies not covered by `requirements.txt`.
