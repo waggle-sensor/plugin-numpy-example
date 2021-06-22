@@ -7,7 +7,7 @@ from main import process_frame
 # This is an example of building a test suite using Python's unittest module.
 class MyTestCase(unittest.TestCase):
 
-    def test_example(self):
+    def test_stats(self):
         frame = cv2.imread("test.jpg")
         results = process_frame(frame)
         self.assertLessEqual(results["min"][0], results["max"][0])
