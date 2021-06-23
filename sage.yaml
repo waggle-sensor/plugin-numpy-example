@@ -7,3 +7,6 @@ source:
     - "linux/arm64"
     - "linux/arm/v7"
   url: "https://github.com/waggle-sensor/plugin-numpy-example"
+
+  testing:
+    command: [test.py]
