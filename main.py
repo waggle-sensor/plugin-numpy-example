@@ -3,6 +3,7 @@ import logging
 import time
 import numpy as np
 from waggle import plugin
+from waggle.data.vision import Camera
 
 
 def process_frame(frame):
@@ -19,7 +20,8 @@ def process_frame(frame):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--rate", default=300, type=float, help="sampling interval in seconds")
+    parser.add_argument("--device", default=0, help="camera device to use")
+    parser.add_argument("--rate", default=10, type=float, help="sampling interval in seconds")
     args = parser.parse_args()
 
     logging.basicConfig(
@@ -31,13 +33,10 @@ def main():
     
     plugin.init()
 
-    while True:
-        logging.info("getting camera snapshot")
-        # TODO actually take a snapshot from the camera instead of using an empty image!
-        fake_frame = np.zeros((640, 480, 3))
+    cam = Camera(args.device)
 
-        logging.info("calling process_frame")
-        results = process_frame(fake_frame)
+    for sample in cam.stream():
+        results = process_frame(sample.data)
 
         logging.info("results %s", results)
 

@@ -1,14 +1,10 @@
 from main import process_frame
+from waggle.data.vision import Camera
 import cv2
 
-cap = cv2.VideoCapture(0)
+cam = Camera()
 
-while True:
-    ok, image = cap.read()
-    if not ok:
-        break
-    cv2.imshow("capture", image)
+for sample in cam.stream():
+    cv2.imshow("capture", sample.data)
     cv2.waitKey(1)
-    print(process_frame(image))
-
-cap.release()
+    print(process_frame(sample.data))
