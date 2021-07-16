@@ -11,4 +11,5 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Finally, we include our code and specify what command should be run to execute it.
 COPY main.py .
-ENTRYPOINT ["python3" , "main.py"]
+COPY test.py .
+COPY test.jpg .
