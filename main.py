@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import argparse
 import logging
 import time
@@ -30,7 +31,7 @@ def main():
         datefmt='%Y/%m/%d %H:%M:%S')
 
     logging.info("starting plugin. will process a frame every %ss", args.rate)
-    
+
     plugin.init()
 
     cam = Camera(args.device)

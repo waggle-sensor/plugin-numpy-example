@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import numpy as np
 import cv2
 import unittest
@@ -13,7 +14,7 @@ class MyTestCase(unittest.TestCase):
         self.assertLessEqual(results["min"][0], results["max"][0])
         self.assertLessEqual(results["min"][1], results["max"][1])
         self.assertLessEqual(results["min"][2], results["max"][2])
-    
+
     # You can add your own test_something functions below to expand the test!
     def test_something(self):
         self.assertTrue(1 == 1)
