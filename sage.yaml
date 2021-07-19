@@ -9,4 +9,4 @@ source:
   url: "https://github.com/waggle-sensor/plugin-numpy-example"
   branch: "main"
   testing:
-    command: [test.py]
+    command: ["test.py"]

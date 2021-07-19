@@ -13,4 +13,6 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 # Finally, we include our code and specify what command should be run to execute it.
 COPY main.py .
 COPY test.py .
-CMD ["./main.py"]
+
+ENV PATH="/:${PATH}"
+CMD ["main.py"]
