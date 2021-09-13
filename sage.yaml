@@ -1,6 +1,9 @@
 name: "numpy-example"
 description: "Numpy example which computes some stats of a test frame."
 version: "0.1.0"
+authors: "Sean Shahkarami <sshahkarami@anl.gov>"
+keywords: "example, tutorial, numpy"
+homepage: "https://github.com/waggle-sensor/plugin-numpy-example/blob/main/README.md"
 source:
   architectures:
     - "linux/amd64"
@@ -8,5 +11,6 @@ source:
     - "linux/arm/v7"
   url: "https://github.com/waggle-sensor/plugin-numpy-example"
   branch: "main"
-  testing:
-    command: ["test.py"]
+testing:
+  mask_entrypoint: true
+  command: ["test.py"]
