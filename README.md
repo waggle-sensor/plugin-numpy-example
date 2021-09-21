@@ -14,3 +14,4 @@ Plugins contain both code and packaging information. In this example, we've orga
 2. The packaging information consists of:
     * [sage.yaml](./sage.yaml). Defines plugin info used by [ECR](https://portal.sagecontinuum.org). You must update this for your example.
     * [Dockerfile](./Dockerfile). Defines plugin code and dependency bundle. You can update this if you have additional dependencies not covered by [requirements.txt](./requirements.txt).
+    * [ecr-meta](./ecr-meta/). Science metadata for ECR.
