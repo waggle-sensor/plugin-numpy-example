@@ -9,9 +9,9 @@ from waggle.data.vision import Camera
 
 def process_frame(frame):
     # we assume frame shape is (H, W, 3) for an RGB image
-    mean = np.mean(frame, (0, 1))
-    min = np.min(frame, (0, 1))
-    max = np.max(frame, (0, 1))
+    mean = np.mean(frame, (0, 1)).astype(float)
+    min = np.min(frame, (0, 1)).astype(float)
+    max = np.max(frame, (0, 1)).astype(float)
     return {
         "mean": mean,
         "min": min,
@@ -22,7 +22,7 @@ def process_frame(frame):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--device", default=0, help="camera device to use")
-    parser.add_argument("--rate", default=10, type=float, help="sampling interval in seconds")
+    parser.add_argument("--interval", default=10, type=float, help="sampling interval in seconds")
     args = parser.parse_args()
 
     logging.basicConfig(
@@ -30,15 +30,19 @@ def main():
         format='%(asctime)s %(message)s',
         datefmt='%Y/%m/%d %H:%M:%S')
 
-    logging.info("starting plugin. will process a frame every %ss", args.rate)
+    logging.info("starting plugin. will process a frame every %ss", args.interval)
 
     with Plugin() as plugin:
         cam = Camera(args.device)
 
         for sample in cam.stream():
+            logging.info("processing frame")
             results = process_frame(sample.data)
 
-            logging.info("results %s", results)
+            logging.info("image summary")
+            logging.info("mean: %s", results["mean"])
+            logging.info("min: %s", results["min"])
+            logging.info("max: %s", results["max"])
 
             plugin.publish("image.mean.red", results["mean"][0])
             plugin.publish("image.mean.green", results["mean"][1])
@@ -52,7 +56,7 @@ def main():
             plugin.publish("image.max.green", results["max"][1])
             plugin.publish("image.max.blue", results["max"][2])
 
-            time.sleep(args.rate)
+            time.sleep(args.interval)
 
 
 if __name__ == "__main__":
