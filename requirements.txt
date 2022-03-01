@@ -1,5 +1,5 @@
 # Required Waggle Python modules
-waggle @ https://github.com/waggle-sensor/pywaggle/releases/download/0.46.0/waggle-0.46.0-py3-none-any.whl
+pywaggle==0.52.*
 
 # Custom Python modules. Please add your requirements below.
 numpy

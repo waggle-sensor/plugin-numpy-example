@@ -3,7 +3,7 @@ import argparse
 import logging
 import time
 import numpy as np
-from waggle import plugin
+from waggle.plugin import Plugin
 from waggle.data.vision import Camera
 
 
@@ -32,28 +32,27 @@ def main():
 
     logging.info("starting plugin. will process a frame every %ss", args.rate)
 
-    plugin.init()
+    with Plugin() as plugin:
+        cam = Camera(args.device)
 
-    cam = Camera(args.device)
+        for sample in cam.stream():
+            results = process_frame(sample.data)
 
-    for sample in cam.stream():
-        results = process_frame(sample.data)
+            logging.info("results %s", results)
 
-        logging.info("results %s", results)
+            plugin.publish("image.mean.red", results["mean"][0])
+            plugin.publish("image.mean.green", results["mean"][1])
+            plugin.publish("image.mean.blue", results["mean"][2])
 
-        plugin.publish("image.mean.red", results["mean"][0])
-        plugin.publish("image.mean.green", results["mean"][1])
-        plugin.publish("image.mean.blue", results["mean"][2])
+            plugin.publish("image.min.red", results["min"][0])
+            plugin.publish("image.min.green", results["min"][1])
+            plugin.publish("image.min.blue", results["min"][2])
 
-        plugin.publish("image.min.red", results["min"][0])
-        plugin.publish("image.min.green", results["min"][1])
-        plugin.publish("image.min.blue", results["min"][2])
+            plugin.publish("image.max.red", results["max"][0])
+            plugin.publish("image.max.green", results["max"][1])
+            plugin.publish("image.max.blue", results["max"][2])
 
-        plugin.publish("image.max.red", results["max"][0])
-        plugin.publish("image.max.green", results["max"][1])
-        plugin.publish("image.max.blue", results["max"][2])
-
-        time.sleep(args.rate)
+            time.sleep(args.rate)
 
 
 if __name__ == "__main__":
