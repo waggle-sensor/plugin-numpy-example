@@ -56,6 +56,8 @@ def main():
             plugin.publish("image.max.green", results["max"][1])
             plugin.publish("image.max.blue", results["max"][2])
 
+            logging.info("published summary")
+
             time.sleep(args.interval)
 
 
