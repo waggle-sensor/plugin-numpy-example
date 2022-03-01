@@ -11,7 +11,7 @@ def process_frame(frame):
     # we assume frame shape is (H, W, 3) for an RGB image
     mean = np.mean(frame, (0, 1))
     min = np.min(frame, (0, 1))
-    max = np.min(frame, (0, 1))
+    max = np.max(frame, (0, 1))
     return {
         "mean": mean,
         "min": min,
