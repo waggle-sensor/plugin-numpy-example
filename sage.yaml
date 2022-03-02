@@ -9,6 +9,3 @@ source:
     - "linux/arm64"
   url: "https://github.com/waggle-sensor/plugin-numpy-example"
   branch: "main"
-testing:
-  mask_entrypoint: true
-  command: ["python3", "/app/test.py"]
