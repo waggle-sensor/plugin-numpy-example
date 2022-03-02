@@ -1,6 +1,6 @@
 name: "numpy-example"
 description: "Numpy example which computes some stats of a test frame."
-version: "0.2.2"
+version: "0.2.3"
 authors: "Sean Shahkarami <sshahkarami@anl.gov>"
 keywords: "example, tutorial, numpy, hackathon"
 source:
@@ -11,4 +11,4 @@ source:
   branch: "main"
 testing:
   mask_entrypoint: true
-  command: ["test.py"]
+  command: ["/app/test.py"]
