@@ -11,4 +11,4 @@ source:
   branch: "main"
 testing:
   mask_entrypoint: true
-  command: ["/app/test.py"]
+  command: ["python3", "/app/test.py"]
