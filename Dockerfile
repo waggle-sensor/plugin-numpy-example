@@ -12,4 +12,4 @@ COPY test.py .
 COPY test.jpg .
 
 ENV PATH="/:${PATH}"
-CMD ["main.py"]
+ENTRYPOINT [ "python3", "main.py"]
