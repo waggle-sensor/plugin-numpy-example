@@ -1,6 +1,6 @@
 name: "numpy-example"
 description: "Numpy example which computes some stats of a test frame."
-version: "0.2.1"
+version: "0.2.2"
 authors: "Sean Shahkarami <sshahkarami@anl.gov>"
 keywords: "example, tutorial, numpy, hackathon"
 source:
